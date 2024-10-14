@@ -9,9 +9,19 @@ let customers = [
     {id:8, name:"Casey Peevor", age:39, address:{city:"Linton", street:"6555 Kennedy Alley", house:62}, newsLetter: false},
     {id:9, name:"Ashlie Wozencraft", age:23, address:{city:"Espinosa", street:"78 Pepper Wood Terrace", house:11}, newsLetter: false},
     {id:10, name:"Jonas Tungate", age:83, address:{city:"Padangulaktanding", street:"224 Manley Drive", house:49}, newsLetter: true}
-]
+];
 
 function removeCustomer(id) {
-    //TODO    
+    const index = customers.findIndex(customer => customer.id === id);
+    
+    if (index !== -1) {
+        const updatedCustomers = [...customers];
+        updatedCustomers.splice(index, 1); 
+        return updatedCustomers;
+    } else {
+        return false; 
+    }
 }
+
+
 module.exports = removeCustomer;

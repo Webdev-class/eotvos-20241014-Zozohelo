@@ -12,14 +12,37 @@ let customers = [
 ]
 
 function isAddress(address) {
-    //TODO
+   return(
+    typeof(address.city) === "string" && typeof(address.street) === "string" && typeof(address.house) === "number"
+   )
 }
 
 function isCustomer(name, age, address, newsLetter) {
-    //TODO
+    return(
+        typeof(name) === "string" && typeof(age) === "number" && isAddress(address) && typeof(newsLetter) === "boolean"
+    )
 }
 
 function addCustomer(name, age, address, newsLetter) {
-    //TODO
+    if (isCustomer(name, age, address, newsLetter)) {
+        const newId = customers.length > 0 ? customers[customers.length - 1].id + 1 : 1;
+
+        const newCustomer = {
+            id: newId,
+            name: name,
+            age: age,
+            address: address,
+            newsLetter: newsLetter
+        };
+
+        customers.push(newCustomer);
+        return customers;
+    } else {
+        console.log("Hibás input");
+        return false;
+    }
 }
+
+ 
+
 module.exports = addCustomer;

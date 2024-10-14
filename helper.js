@@ -12,5 +12,3 @@ let customers = [
 ]
 const addCustomer = require('./f1/addCustomer');
 const removeCustomer = require('./f2/removeCustomer')
-
-//You can work here...
